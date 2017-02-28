@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-bbs" namespace="/bbs" extends="rjxh">
+		<!-- 查询所有帖子 -->
+		<action name="bbs" method="bbs" class="cn.rjxh.action.bbs.BBSAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/bbs.jsp</result>
+		</action>
+		
+		<!-- 发帖 -->
+		<action name="addTz" method="addTz" class="cn.rjxh.action.bbs.BBSAction">
+			<interceptor-ref name="defaultStack"/>
+			<result type="chain">bbs</result>
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="invalid.token">/WEB-INF/jsp/rx/bbsToken.jsp</result>
+		</action>
+		
+		<!-- 根据帖子id来获取该帖 -->
+		<action name="getTz" method="getTzById" class="cn.rjxh.action.bbs.BBSAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/bbsTz.jsp</result>
+		</action>
+		
+		<!-- 添加一级评论 -->
+		<action name="addRemark" method="addRemark" class="cn.rjxh.action.bbs.BBSAction">
+			<interceptor-ref name="defaultStack"/>
+			<result type="chain">getTz</result>
+			<interceptor-ref name="token"></interceptor-ref>
+			<result name="invalid.token">/WEB-INF/jsp/rx/bbsToken.jsp</result>
+		</action>
+		
+		<!-- 添加二级评论 -->
+		<action name="addSubRemark" method="addSubRemark" class="cn.rjxh.action.bbs.BBSAction">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- BBS后台管理系统 -->
+		<!-- 获取所有帖子 -->
+		<action name="getTz_ht" method="bbs" class="cn.rjxh.action.bbs.BBSAction">
+			<result>/WEB-INF/jsp/admin/bbs/tz.jsp</result>
+		</action>
+		
+		<!-- 取消置顶 -->
+		<action name="qxZd" method="qxZd" class="cn.rjxh.action.bbs.BBSAction">
+			<result type="chain">getTz_ht</result>
+		</action>
+		
+		<!-- 取消置顶 -->
+		<action name="szZd" method="szZd" class="cn.rjxh.action.bbs.BBSAction">
+			<result type="chain">getTz_ht</result>
+		</action>
+		
+		<!-- 删除帖子 -->
+		<action name="deleteTz" method="deleteTz" class="cn.rjxh.action.bbs.BBSAction">
+			<result type="chain">getTz_ht</result>
+		</action>
+		
+		<!-- 跳到管理员发帖页面 -->
+		<action name="addTzPage">
+			<result>/WEB-INF/jsp/admin/bbs/addTzPage.jsp</result>
+		</action>
+		
+		<!-- 添加帖子 -->
+		<action name="glyAddTz" method="glyAddTz" class="cn.rjxh.action.bbs.BBSAction">
+			<result type="chain">getTz_ht</result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-user" namespace="/user" extends="rjxh">
+		<action name="loginpage">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/loginpage.jsp</result>
+		</action>
+		
+		<!-- 用户登陆 -->
+		<action name="login" method="login" class="cn.rjxh.action.user.UserAction">
+			<interceptor-ref name="defaultStack"/>
+			<result name="success">/WEB-INF/jsp/admin/rolego.jsp</result>
+			<result name="error">/WEB-INF/jsp/rx/loginpage.jsp</result>
+		</action>
+		<action name="admin">
+			<result>/WEB-INF/jsp/admin/main.jsp</result>
+		</action>
+		
+		<action name="top">
+			<result>/WEB-INF/jsp/admin/top.jsp</result>
+		</action>
+		<action name="left">
+			<result>/WEB-INF/jsp/admin/left.jsp</result>
+		</action>
+		<action name="content">
+			<result>/WEB-INF/jsp/admin/content.jsp</result>
+		</action>
+		<action name="content_bottom">
+			<result>/WEB-INF/jsp/admin/content_bottom.jsp</result>
+		</action>
+		<action name="bottom">
+			<result>/WEB-INF/jsp/admin/bottom.jsp</result>
+		</action>
+		
+		<!-- 后台管理系统代码 -->
+		<action name="getUser" method="getUser" class="cn.rjxh.action.user.UserAction">
+			<result>/WEB-INF/jsp/admin/user/user.jsp</result>	
+		</action>
+		
+		<action name="updateUserPage" method="updateUserPage" class="cn.rjxh.action.user.UserAction">
+			<result>/WEB-INF/jsp/admin/user/updateUserPage.jsp</result>	
+		</action>
+		
+		<action name="updateUser" method="updateUser" class="cn.rjxh.action.user.UserAction">
+			<result type="chain">updateUserPage</result>	
+		</action>
+		
+		<action name="addUserPage" method="addUserPage" class="cn.rjxh.action.user.UserAction">
+			<result>/WEB-INF/jsp/admin/user/addUserPage.jsp</result>	
+		</action>
+		
+		<action name="addUser" method="addUser" class="cn.rjxh.action.user.UserAction">
+			<result type="chain">getUser</result>	
+		</action>
+		
+		<action name="checkUsername" method="checkUsername" class="cn.rjxh.action.user.UserAction"/>
+		
+		<action name="deleteUser" method="deleteUser" class="cn.rjxh.action.user.UserAction">
+			<result type="chain">getUser</result>	
+		</action>
+		
+		<!-- 用户注册页面 -->
+		<action name="register">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/bbsRegister.jsp</result>	
+		</action>
+		
+		<!-- 验证码 -->
+		<action name="yzm" class="cn.rjxh.utils.verify.VerifyAction">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 注册时，异步校验输入的用户名是否已经存在 -->
+		<action name="jyUserExist" method="checkUsername" class="cn.rjxh.action.user.UserAction">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 注册用户 -->
+		<action name="registerUser" method="registerUser" class="cn.rjxh.action.user.UserAction">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 获取用户自己的资料 -->
+		<action name="self" method="getSelfInfo" class="cn.rjxh.action.user.UserAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/bbsUserSelf.jsp</result>
+		</action>
+		
+		<action name="updateSelfUser" method="updateSelfUser" class="cn.rjxh.action.user.UserAction">
+			<interceptor-ref name="defaultStack"/>
+			<result type="chain">self</result>
+		</action>
+		
+		<action name="loginout" method="loginout" class="cn.rjxh.action.user.UserAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/loginpage.jsp</result>
+		</action>
+	</package>
+</struts>

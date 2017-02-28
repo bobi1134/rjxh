@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-lxwm" namespace="/lxwm" extends="rjxh">
+		<!-- 获取所有联系我们信息 -->
+		<action name="contact" method="contact" class="cn.rjxh.action.contact.ContactAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/contact.jsp</result>
+		</action>
+		
+		<!-- 后台管理系统 -->
+		<action name="getContact" method="getContact" class="cn.rjxh.action.contact.ContactAction">
+			<result>/WEB-INF/jsp/admin/contact/contact.jsp</result>
+		</action>
+		
+		<action name="updateContactPage" method="updateContactPage" class="cn.rjxh.action.contact.ContactAction">
+			<result>/WEB-INF/jsp/admin/contact/updateContactPage.jsp</result>
+		</action>
+		
+		<action name="updateContact" method="updateContact" class="cn.rjxh.action.contact.ContactAction">
+			<result type="chain">getContact</result>
+		</action>
+		
+		<action name="addFlPage">
+			<result>/WEB-INF/jsp/admin/contact/addFlPage.jsp</result>
+		</action>
+		
+		<action name="addFl" method="addFl" class="cn.rjxh.action.contact.ContactAction">
+			<result type="chain">getContact</result>
+		</action>
+		
+		<action name="addBtPage" method="addBtPage" class="cn.rjxh.action.contact.ContactAction">
+			<result>/WEB-INF/jsp/admin/contact/addBtPage.jsp</result>
+		</action>
+		
+		<action name="addBt" method="addBt" class="cn.rjxh.action.contact.ContactAction">
+			<result type="chain">getContact</result>
+		</action>
+		
+		<action name="deleteSubContact" method="deleteSubContact" class="cn.rjxh.action.contact.ContactAction">
+			<result type="chain">getContact</result>
+		</action>
+	</package>
+</struts>

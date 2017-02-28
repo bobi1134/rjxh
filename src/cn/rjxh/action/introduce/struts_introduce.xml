@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-xhjj" namespace="/xhjj" extends="rjxh">
+		<action name="introduce" method="introduce" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/introduce.jsp</result>
+		</action>
+		
+		<!-- 后台管理系统 -->
+		<action name="baseInfo" method="introduce" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result>/WEB-INF/jsp/admin/introduce/baseIntroduce.jsp</result>
+		</action>
+		
+		<action name="updateBaseInfoPage" method="updateBaseInfoPage" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result>/WEB-INF/jsp/admin/introduce/updateBaseInfoPage.jsp</result>
+		</action>
+		
+		<action name="updateBaseInfo" method="updateBaseInfo" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result type="chain">baseInfo</result>
+		</action>
+		
+		<action name="addBaseInfoPage">
+			<result>/WEB-INF/jsp/admin/introduce/addBaseInfoPage.jsp</result>
+		</action>
+		
+		<action name="addBaseInfo" method="addBaseInfo" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result type="chain">baseInfo</result>
+		</action>
+		
+		<action name="deleteBaseInfo" method="deleteBaseInfo" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result type="chain">baseInfo</result>
+		</action>
+		
+		
+		<action name="imgInfo" method="introduce" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result>/WEB-INF/jsp/admin/introduce/imgIntroduce.jsp</result>
+		</action>
+		
+		<action name="addImgInfoPage">
+			<result>/WEB-INF/jsp/admin/introduce/addImgInfoPage.jsp</result>
+		</action>
+		
+		<action name="addImgInfo" method="addImgInfo" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result type="chain">imgInfo</result>
+		</action>
+		
+		<action name="deleteImgInfo" method="deleteImgInfo" class="cn.rjxh.action.introduce.AssociationIntroduceAction">
+			<result type="chain">imgInfo</result>
+		</action>
+	</package>
+</struts>

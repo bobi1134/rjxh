@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-homepage" namespace="/homepage" extends="rjxh">
+		<action name="welcome" method="welcome" class="cn.rjxh.action.homepage.HomePageAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/index.jsp</result>
+		</action>
+		
+		<!--  -->
+		<action name="getBanner" method="getBanner" class="cn.rjxh.action.homepage.HomePageAction">
+			<result>/WEB-INF/jsp/admin/homepage/banner.jsp</result>
+		</action>
+		
+		<action name="updateBannerPage" method="updateBannerPage" class="cn.rjxh.action.homepage.HomePageAction">
+			<result>/WEB-INF/jsp/admin/homepage/updateBannerPage.jsp</result>
+		</action>
+		
+		<action name="updateBanner" method="updateBanner" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">getBanner</result>
+		</action>
+		
+		<action name="deleteBanner" method="deleteBanner" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">getBanner</result>
+		</action>
+		
+		<action name="addBannerPage">
+			<result>/WEB-INF/jsp/admin/homepage/addBannerPage.jsp</result>
+		</action>
+		
+		<action name="addBanner" method="addBanner" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">getBanner</result>
+		</action>
+		
+		<!--  -->
+		<action name="getSkilltalk" method="getSkilltalk" class="cn.rjxh.action.homepage.HomePageAction">
+			<result>/WEB-INF/jsp/admin/homepage/skilltalk.jsp</result>
+		</action>
+		
+		<action name="updateSkilltalkPage" method="updateSkilltalkPage" class="cn.rjxh.action.homepage.HomePageAction">
+			<result>/WEB-INF/jsp/admin/homepage/updateskilltalk.jsp</result>
+		</action>
+		
+		<action name="updateSkilltalk" method="updateSkilltalk" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">updateSkilltalkPage</result>
+		</action>
+		
+		<action name="addSubSkilltalk" method="addSubSkilltalk" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">updateSkilltalkPage</result>
+		</action>
+		
+		<action name="deleteSubSkilltalk" method="deleteSubSkilltalk" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">updateSkilltalkPage</result>
+		</action>
+		
+		<action name="addSkilltalkPage">
+			<result>/WEB-INF/jsp/admin/homepage/addSkilltalkPage.jsp</result>
+		</action>
+		
+		<action name="addSkilltalk" method="addSkilltalk" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">getSkilltalk</result>
+		</action>
+		
+		<action name="deleteSkilltalk" method="deleteSkilltalk" class="cn.rjxh.action.homepage.HomePageAction">
+			<result type="chain">getSkilltalk</result>
+		</action>
+		
+		<action name="3dstreet">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/bbs3dStreet.jsp</result>
+		</action>
+	</package>
+</struts>

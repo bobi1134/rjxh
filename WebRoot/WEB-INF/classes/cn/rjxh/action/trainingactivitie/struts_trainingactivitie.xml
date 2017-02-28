@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-trainactive" namespace="/trainactive" extends="rjxh">
+		<!-- 热点答疑 -->
+		<action name="trainactive" method="trainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/trainactive.jsp</result>
+		</action>
+		
+		<action name="content" method="content" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/trainactive_content.jsp</result>
+		</action>
+		
+		<!-- 后台管理系统 -->
+		<action name="trainactive_ht" method="trainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result>/WEB-INF/jsp/admin/trainingactivitie/trainactive.jsp</result>
+		</action>
+		
+		<action name="updateTrainactivePage" method="content" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result>/WEB-INF/jsp/admin/trainingactivitie/updateTrainactivePage.jsp</result>
+		</action>
+		
+		<action name="updateTrainactive" method="updateTrainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result type="chain">trainactive_ht</result>
+		</action>
+		
+		<action name="addTrainactiverPage">
+			<result>/WEB-INF/jsp/admin/trainingactivitie/addTrainactivePage.jsp</result>
+		</action>
+		
+		<action name="addTrainactive" method="addTrainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result type="chain">trainactive_ht</result>
+		</action>
+		
+		<action name="deleteTrainactive" method="deleteTrainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result type="chain">trainactive_ht</result>
+		</action>
+		
+		<action name="szsyTrainactive" method="szsyTrainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result type="chain">trainactive_ht</result>
+		</action>
+		
+		<action name="qxsyTrainactive" method="qxsyTrainactive" class="cn.rjxh.action.trainingactivitie.TrainingActivitieAction">
+			<result type="chain">trainactive_ht</result>
+		</action>
+	</package>
+</struts>

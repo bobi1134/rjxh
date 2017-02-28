@@ -1,0 +1,73 @@
+#mleft{width:294px;height:199px;float:left;} /*重写css*/
+.sub_title {background:#E7E7E7 url(../images/sub_bar_title_bg.gif);width:294px;height:36px;}
+.sub_title h2 {float:left;margin:0 0 0 40px;font:14px/36px "微软雅黑","黑体",sans-serif;color:#151515;_display:inline;}
+/*ie6双倍margin bug hack*/
+.board_list {margin:1px 0 10px 0;padding:10px 0 1px 0;background:#EEE url(../images/sub_left_nav_bg.gif) repeat-x;height:199px;}
+.board_list li{width:294px;height:29px;}
+.board_list li a {display:block;width:264px;height:29px;padding:0 0 0 30px;background:url(../images/article_head.gif) no-repeat;font:12px/29px "宋体",serif;color:#808080;}
+.board_list li a:hover,.board_list .current_subnav a{background:#EEE url(../images/article_on_bg.gif) no-repeat;color:#FF832C;}
+
+.bi{ width:694px;float:right;display:none;}
+.posi{float:left; margin:6px 8px;}
+.bi a{color:#8F8F8F;float:left;font:18px/35px "宋体",serif;color:#8F8F8F;}
+.bi a:hover {color:#FF832C;}
+
+ /*.position_img {float:left;margin:8px 0 0 10px;_display:inline;}
+}
+}
+}
+}
+}
+}
+{margin:12px 0 0 8px;}
+
+*/
+.f_left {float:left;}
+.f_right {float:right;}
+.p1{font:13px/25px "微软雅黑",serif;color:#8F8F8F;padding:5px 20px;}
+.sp{font:bold 15px/25px "微软雅黑",serif;color:#8F8F8F;}
+.sp1{font:bold 15px/25px "微软雅黑",serif;color:#e9cd10;}
+
+/*最新动态子网页*/
+#mainbody{width:1002px;height:auto;}
+.time-wea{width:1002px;height:30px;border:1px solid #CCC;background:url(../images/subpage_right_top_bg.gif);background-repeat:repeat-x;}	
+#content{width:1002px;border:1px solid #999;
+border-style:outset;
+background:url(../images/sub_left_nav_bg.gif);background-repeat:repeat-x;}
+#content h1{font-size:20px;with:100px;float:left;line-height:20px;}
+.a1{font:16px "Times New Roman","微软雅黑",sans-serif;color:#808080; float:right;}
+.a1:hover{color:#FFF;}
+#time{width:200px;float: left;height: 30px;font-size: 12px;font-family: "微软雅黑";line-height: 30px;margin-left: 100px;}
+.wea{width:200px;float:left;height: 20px;margin-top: 5px;margin-left: 100px;}
+#content ul{
+	list-style-image:url(../images/disc.gif);
+	width:980px;
+	float:right;
+	margin-top:10px;
+}
+#content ul li{margin-top:5px;}
+#content ul li a{font-size:16px;width:600px;font-family:"微软雅黑", Helvetica, sans-serif;color:#000;}
+#content ul li a:hover{color:#F90;}
+#content ul li span{font-size:16px;float:right;font-family:Tahoma, Geneva, sans-serif;}
+.s1{margin-right:33px;}
+#content ul li img{float:right;}
+
+/*协会介绍子网页*/
+#main-i{width: 1002px;height:auto;border: 1px dashed #e4e2e3;
+		 FILTER: progid:DXImageTransform.Microsoft.Gradient(gradientType=0,startColorStr=##DCDCDC,endColorStr=#ffffff); /*IE*/   
+    background:-moz-linear-gradient(top,#DCDCDC,#ffffff);/*火狐*/   
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#DCDCDC), to(#ffffff));/*谷歌*/   
+  
+      
+    background-image: -webkit-gradient(linear,left bottom,left top,color-start(0, #DCDCDC),color-stop(1, #ffffff));/* Safari & Chrome*/  
+    filter:  progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#DCDCDC', endColorstr='#ffffff'); /*IE6 & IE7*/  
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#DCDCDC', endColorstr='#ffffff')"; /* IE8 */ }
+.title-i{font-size:24px;font-family:"微软雅黑";text-align:center;color:#FFF;
+	}
+#word{font-size:16px;font-family:"微软雅黑", Geneva, sans-serif;color:#999;}
+#word p{font:bold 20px/25px "微软雅黑",serif;color:#e9cd10;}
+#main-i h1{font:bold 20px/25px "微软雅黑",serif;color:#e9cd10;}
+
+
+
+

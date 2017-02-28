@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/WEB-INF/jsp/rx/bbsRegister.jsp,WebRoot/cj/ueditor/ueditor.all.min.js,WebRoot/cj/ueditor/third-party/highcharts/modules/map.js,WebRoot/cj/ueditor/third-party/jquery-1.10.2.min.js,WebRoot/cj/ueditor/jsp
+validator.Unchecked=

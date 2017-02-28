@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-hotanswer" namespace="/hotanswer" extends="rjxh">
+		<!-- 热点答疑 -->
+		<action name="hotanswer" method="hotanswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/hotanswering.jsp</result>
+		</action>
+		
+		<action name="content" method="content" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/hotanswer_content.jsp</result>
+		</action>
+		
+		<!-- 后台管理 -->
+		<action name="hotanswer_ht" method="hotanswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result>/WEB-INF/jsp/admin/hotanswer/hotanswer.jsp</result>
+		</action>
+		
+		<action name="updateHotAnswerPage" method="content" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result>/WEB-INF/jsp/admin/hotanswer/updateHotAnswerPage.jsp</result>
+		</action>
+		
+		<action name="updateHotAnswer" method="updateHotAnswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result type="chain">hotanswer_ht</result>
+		</action>
+		
+		<action name="addHotAnswerPage">
+			<result>/WEB-INF/jsp/admin/hotanswer/addHotAnswerPage.jsp</result>
+		</action>
+		
+		<action name="addHotAnswer" method="addHotAnswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result type="chain">hotanswer_ht</result>
+		</action>
+		
+		<action name="deleteHotAnswer" method="deleteHotAnswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result type="chain">hotanswer_ht</result>
+		</action>
+		
+		<action name="szsyHotAnswer" method="szsyHotAnswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result type="chain">hotanswer_ht</result>
+		</action>
+		
+		<action name="qxsyHotAnswer" method="qxsyHotAnswer" class="cn.rjxh.action.hotanswer.HotAnswerAction">
+			<result type="chain">hotanswer_ht</result>
+		</action>
+	</package>
+</struts>

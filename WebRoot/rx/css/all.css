@@ -1,0 +1,90 @@
+
+#container{width:1002px;height:auto;margin:0 auto;}/*最外面必须使用一个大盒子，只设width，使用margin水平居中*/
+#header{height:128px; width:1002px;background:url(../images/top_bg.jpg) no-repeat;}/*背景图片和颜色一起定义,因为内部要放logo，所以要用背景方式插入图片*/
+#nav li{float:left;width:90px;height:37px;margin-right:2px;}/*直接从nav li开始定义，nav跳过，li必须定义宽高，定义margin-right为了控制各块的间距,只设置右边即可，float:left；让li变成行内块状元素。此例没有设置ul(即#nav)是因为导航ul后面没有同级的其他必须换行的元素，否则必须设置ul高度*/
+#nav li a{font:14px/37px Arial,"Times New Roman","微软雅黑";color:#402c25;text-align:center;display:block;
+-webkit-transition: all 0.2s ease-in;
+		  -moz-transition: all 0.2s ease-in;
+		  -o-transition: all 0.2s ease-in;
+		  -ms-transition: all 0.2s ease-in;
+		  transition: all 0.2s ease-in;}
+/*链接的默认状态定义参数最多，a的高宽和li保持一致才能使font里面的行高生效，使用text-align使文字水平居中，color必须单独设置，用来定义文字颜色.这里的display:block;把a已经变成了块状元素，如果li里有其他a，并且没有li没有设置高度和a一样，其他a就会独占换行显示。*/
+#nav li a:hover{background:url(../images/nav_on.gif);
+	-webkit-transform:rotate(10deg);
+		  -moz-transform:rotate(10deg);
+		  -o-transform:rotate(10deg);
+		  -ms-transform:rotate(10deg);
+		  transform:rotate(10deg);}/*这种状态只设置要改变的属性（图片和文字颜色）即可*/
+		  .nav li::after{
+			  right: 0;
+			  background: -moz-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.2) 50%, rgba(255,255,255,0));
+			  background: -webkit-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.2) 50%, rgba(255,255,255,0));
+			  background: -o-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.2) 50%, rgba(255,255,255,0));
+			  background: -ms-linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.2) 50%, rgba(255,255,255,0));
+			  background: linear-gradient(top, rgba(255,255,255,0), rgba(255,255,255,.2) 50%, rgba(255,255,255,0));
+			}
+			.nav li::before{
+			  left: 0;
+			  background: -moz-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+			  background: -webkit-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+			  background: -o-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+			  background: -ms-linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+			  background: linear-gradient(top, #ff625a, #9e3e3a 50%, #ff625a);
+			}
+        /*删除第一项和最后一项导航分隔线*/
+		.nav li:first-child::before{
+        	  background: none;
+			}
+            
+	.nav li:last-child::after{
+    		  background: none;
+			}
+#form1{float:right;margin-top:9px;width:256px;}/*一般使用form控制整体来控制，而不是使用其内部元素，可以先加border调试。垂直方向用margin调整，水平方向用width(不要用margin或padding，因为会影响子元素)，form虽然是块状元素，但是前面的ul未设置高度，故被“后影响”，即使不浮动也并不会换行。*/
+#form1 p{float:left;}/*使用派生设置左浮动使两个input都左浮动，使它们同行显示*/
+.text1{width:200px;border:0;color:#808080;height:20px;}/*使用id单独控制text的宽度，color控制输入的字体颜色，并把border设为零去掉原边框以便和背景图片符合，可以不去border方便调试*/
+.search{margin:4px 2px;}
+#banner{width:1000px;height:260px; padding:0 1px; margin:3px 0;}/*width+padding大小不要超出总宽度1002,设置margin是为了上下美观*/
+.slide-pic{overflow:hidden;width:1000px;height:240px}/*jquery特效*/
+.slide-pic li{display:none;}/* 必要元素 */
+.slide-pic li.current{display:block;}/* 必要元素 */
+.slide-pic li a img{width:1000px;height:238px; display:inline;}
+.slide-li li{float:left;width:90px;margin-right:1px;height:20px;}
+.slide-li li a{display:block;font:12px/20px "微软雅黑","黑体";color:#fff;background:#333; text-align:center; filter:alpha(opacity=50); opacity:0.5;}
+.slide-li li.current a{color:#333;background:#fff;}
+.slide-li a:hover{color:#312f32;background:#fff;}
+.op{filter:alpha(opacity=60);opacity:0.6;}
+.op li{background:#666;}
+.op li.current{background:#fff;}
+#main{width:1002px;margin-top:3px;}/*盒子的每一级都必须定义高宽*/
+#mleft{width:694px;float:left;} 
+.bigtitle{width:694px;height:35px;background:url(../images/index_main_top_bg.gif);}
+/*外层div必须定义高宽,背景图片本来很窄，水平平铺。能平铺的小图片方便其他类似模块调用*/
+.bigtitle img{padding:4px 8px;float:left;width:28px;height:27px;}
+/*是bigtitle的子元素，必须定义高宽和图片本身一样，以保持原样。外面间距使用margin控制,根据布局使用左浮。为调试同方向上margin和float引起的双倍margin*/
+.bigtitle h1{font:14px/35px "Times New Roman","微软雅黑";float:left;}
+#mright{width:290px;height:464px;float:right;}
+.mm{font:12px/35px "Times New Roman","微软雅黑",sans-serif;color:#808080; float:right;padding-right:10px;}
+/*是bigtitle的子元素，内容是文字故要定义文字大小和行高(和上层一样高)，根据布局使用左浮动*/
+a.mm:hover{color:#ec854a;}/*第七种选择器，class为more的a的hover状态，相当于#bigtitle a:hover{}*/
+.yewu{margin:5px;width:337px;height:204px;background:#eee;float:left;_display:inline;}
+/*设置一个类，方面多次调用，样式不变，但是在html里面可以修改各部分具体内容。使用了左浮动宽度不够自动换行的原理，margin是为了控制间距._display:inline;为调试同方向上margin和float引起的双倍margin*/
+.yewu h2{padding-left:8px;font:12px/20px "Times New Roman","微软雅黑",sans-serif;}/*为保持美观，行高不易过高。用padding-left控制左边间距,用margin-left也可以*/
+.yewu img{float:left;width:179px;height:145px;margin-right:15px;border:3px solid #fff;}/*img被初始化为块状元素，所以必须使用左浮动才能是列表在右边出现，margin控制间距，加了白色边框。未定义图片高宽*/
+.yewu ul{float:left;}/*此处的列表不能让li左浮动，而是要让ul左浮动靠近左边img，如果li左浮动就会横向排列，不是所要的效果*/
+.yewu ul li{ margin-bottom:10px;background:url(../images/service_intro_bg.gif) no-repeat left center;}/*背景图这是个小点不能平铺，使用定位使该小图片出现在左边中间位置。bottom保持各行间距。li要纵向排列，不能左浮动*/
+.yewu ul li a{font:12px "Times New Roman","微软雅黑",sans-serif;color:#808080; padding-left:10px;}/*没有定义行高意味着默认，二次定义颜色，因为yewu里的颜色不能被继承.为保持IE兼容性，使用a，不要使用a:link.使用padding调整使文字保持和黑点的距离，不能使用margin，如果用margin就会影响背景。*/
+.yewu ul li a:hover{text-decoration:underline;}/*悬停时出现下划线*/
+.mr{width:290px;height:35px;}/*重新定义了高宽，因为css以后面的为准，故同时使用时这里的width覆盖了bigtitle里面的*/
+.talk{height:190px;width:280px;background:#eee;margin:3px 0;padding-left:10px;}
+/*如果.mr用了float:right;，那这里这里一定要使用float:right;变成浮动元素，否则上下margin的bug使margin:5px 0;将无效，padding-left:10px,故width减10,这里为保留背景色，故要用padding-lift不能用magin-left*/
+.talk li{padding-left:10px;margin-bottom:10px;background:url(../images/service_intro_bg.gif) no-repeat left center;}
+.talk li a{font:12px Arial,"Times New Roman","微软雅黑",sans-serif;color:#808080;}
+#footer{width:1002px; height:100px;color:#808080;float:left;}/*footer、footer ol必须定义宽高(ul只需要定义高度)，因为二者是li的上上级和上级。此处的color可以让ul和p继承，但是无法让ul中a中文字继承.必须清除上面mright的浮动*/
+#footer ol{height:35px;padding-left:10px;background:gray url(../images/footer_bg.gif);}/*因为导航后面有其他同级元素，故ul必须定义高度恢复块状元素特征.定义了背景图片之前加上相近的灰色.这里的padding-left只影响了第一个li,后面的li是被第一个推走*/
+#footer ol li{float:left;}/*派生选择器设置行内块状元素li的高和浮动*/
+#footer ol li a{font:14px/35px simhei,"微软雅黑";color:#808080;}
+/*li没有设置宽度也没设置padding，a也没有设置text-align:center，用空格符号做导航间隔font里面的line-height是为了竖直方向居中，没有设置displa:block是因为不是想一整块变色，只是想文字变色*/
+#footer ol li a:hover{color:#ec854a;}
+#footer p{font:14px "Times New Roman","微软雅黑",sans-serif;}
+#footer p a{color:#ec854a;}/*默认和悬停颜色和其他链接不同.为保持IE兼容性，使用a，不要使用a:link*/
+#footer p a:hover{color:#808080;}

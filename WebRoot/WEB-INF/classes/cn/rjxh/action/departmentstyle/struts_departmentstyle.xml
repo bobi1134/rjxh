@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-bmfc" namespace="/bmfc" extends="rjxh">
+		<action name="style" method="style" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/style.jsp</result>
+		</action>
+		
+		<!-- 后台管理系统 -->
+		<action name="style_ht" method="style_ht" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result>/WEB-INF/jsp/admin/departmentstyle/departmentstyle.jsp</result>
+		</action>
+		
+		<action name="updateZcPage" method="updateZcPage" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result>/WEB-INF/jsp/admin/departmentstyle/updateDepartmentStyle.jsp</result>
+		</action>
+		
+		<action name="updateZc" method="updateZc" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result type="chain">style_ht</result>
+		</action>
+		
+		<action name="subZcPage" method="subZcPage" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result>/WEB-INF/jsp/admin/departmentstyle/subDepartmentstyle.jsp</result>
+		</action>
+		
+		<action name="addSubZcPage" method="addSubZcPage" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result>/WEB-INF/jsp/admin/departmentstyle/addSubDepartmentStyle.jsp</result>
+		</action>
+		
+		<action name="addSubZc" method="addSubZc" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result type="chain">subZcPage</result>
+		</action>
+		
+		<action name="deleteSubZc" method="deleteSubZc" class="cn.rjxh.action.departmentstyle.DepartmentStyleAction">
+			<result type="chain">subZcPage</result>
+		</action>
+	</package>
+</struts>

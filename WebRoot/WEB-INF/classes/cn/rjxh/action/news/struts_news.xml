@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<package name="rjxh-zxdt" namespace="/zxdt" extends="rjxh">
+		<action name="news" method="news" class="cn.rjxh.action.news.NewsAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/news.jsp</result>
+		</action>
+		
+		<action name="content" method="content" class="cn.rjxh.action.news.NewsAction">
+			<interceptor-ref name="defaultStack"/>
+			<result>/WEB-INF/jsp/rx/news_content.jsp</result>
+		</action>
+		
+		<!-- 异步加赞 -->
+		<action name="addzan" method="addzan" class="cn.rjxh.action.news.NewsAction">
+			<interceptor-ref name="defaultStack"/>
+		</action>
+		
+		<!-- 后台管理系统 -->
+		<action name="news_ht" method="news" class="cn.rjxh.action.news.NewsAction">
+			<result>/WEB-INF/jsp/admin/news/news.jsp</result>
+		</action>
+		
+		<action name="updateNewsPage" method="updateNewsPage" class="cn.rjxh.action.news.NewsAction">
+			<result>/WEB-INF/jsp/admin/news/updateNewsPage.jsp</result>
+		</action>
+
+		<action name="updateNews" method="updateNews" class="cn.rjxh.action.news.NewsAction">
+			<result type="chain">news_ht</result>
+		</action>
+		
+		<action name="addNewsPage">
+			<result>/WEB-INF/jsp/admin/news/addNewsPage.jsp</result>
+		</action>
+		
+		<action name="addNews" method="addNews" class="cn.rjxh.action.news.NewsAction">
+			<result type="chain">news_ht</result>
+		</action>
+		
+		<action name="deleteNews" method="deleteNews" class="cn.rjxh.action.news.NewsAction">
+			<result type="chain">news_ht</result>
+		</action>
+	</package>
+</struts>
